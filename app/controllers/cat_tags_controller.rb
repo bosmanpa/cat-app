@@ -1,0 +1,2 @@
+class CatTagsController < ApplicationController
+end

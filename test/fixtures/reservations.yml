@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cat_id: 1
+  renter_id: 1
+  date: 2019-11-11 15:16:20
+
+two:
+  cat_id: 1
+  renter_id: 1
+  date: 2019-11-11 15:16:20
