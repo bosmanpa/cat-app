@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reservation_id: 1
+  owner_review: MyString
+  owner_rating: 1
+  renter_review: MyString
+  renter_rating: 1
+
+two:
+  reservation_id: 1
+  owner_review: MyString
+  owner_rating: 1
+  renter_review: MyString
+  renter_rating: 1

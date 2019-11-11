@@ -1,0 +1,2 @@
+class CatTag < ApplicationRecord
+end
