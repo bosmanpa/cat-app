@@ -1,0 +1,9 @@
+<h1>Rent a Cat!</h1>
+
+<%= form_with model: @reservation do |f| %>
+    <%= f.label :cat_id %>
+    <%= collection_select @reservation, :cat_id, Cat.all, :id, :name %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    <%= f.submit %>
+<% end %>

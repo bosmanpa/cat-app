@@ -1,0 +1,20 @@
+<%if flash[:errors]%>
+  <%flash[:errors].each do |error|%>
+    <%=error%>
+    <br>
+  <%end%>
+<%end%>
+
+
+
+<%= form_with model: @user do |f|  %>
+<%= f.label :username %>
+<%= f.text_field :username %><br>
+<%= f.label :password %>
+<%= f.password_field :password %><br>
+<%= f.label :password_confirmation%>
+<%= f.password_field :password_confirmation%><br>
+<%= f.label :name, "Display Name" %> 
+<%= f.text_field :name %><br>
+<%= f.submit %>
+<% end %>

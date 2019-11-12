@@ -1,0 +1,7 @@
+<h1>Reservations</h1>
+
+<ul>
+<% @reservations.each do |reservation| %>
+    <li><%= link_to "#{reservation.date} #{reservation.cat.name}", reservation %></li>
+<% end  %>
+</ul>
