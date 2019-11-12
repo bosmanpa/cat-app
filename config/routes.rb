@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # resources :cat_tags
   resources :tags
-  resources :reviews
+  resources :cat_reviews
+  resources :renter_reviews
   resources :reservations
   resources :cats
   resources :users

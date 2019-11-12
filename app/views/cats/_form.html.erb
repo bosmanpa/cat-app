@@ -1,0 +1,25 @@
+<%if flash[:errors]%>
+<%flash[:errors].each do |error|%>
+<%= error %>
+<% end  %>
+<%end%>
+
+
+<%= form_with model: @cat do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :breed%>
+  <%= f.text_field :breed %><br>
+  <%= f.label :neighborhood %>
+  <%= f.text_field :neighborhood %><br>
+  <%= f.label :price %>
+  $<%= f.number_field :price%><br>
+  <%= f.label :tag_ids, "Tags" %>
+  <%= f.collection_check_boxes :tag_ids, @tags, :id, :name%><br>
+  <%= f.label :tags, "Add New Tags"%>
+  <%= f.fields_for :tags, @cat.tags.build do |tags_fields| %>
+    <%= tags_fields.text_field :name %>
+  <%end%>
+  <br>
+  <%= f.submit %>
+<%end%>

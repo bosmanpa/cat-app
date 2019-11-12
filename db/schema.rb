@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_185849) do
+ActiveRecord::Schema.define(version: 2019_11_12_212542) do
+
+  create_table "cat_reviews", force: :cascade do |t|
+    t.integer "reservation_id"
+    t.integer "rating"
+    t.string "review"
+  end
 
   create_table "cat_tags", force: :cascade do |t|
     t.integer "cat_id"
@@ -29,20 +35,16 @@ ActiveRecord::Schema.define(version: 2019_11_12_185849) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "renter_reviews", force: :cascade do |t|
+    t.integer "reservation_id"
+    t.integer "rating"
+    t.string "review"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.integer "cat_id"
     t.integer "renter_id"
     t.datetime "date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer "reservation_id"
-    t.string "owner_review"
-    t.integer "owner_rating"
-    t.string "renter_review"
-    t.integer "renter_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

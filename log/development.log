@@ -12836,3 +12836,42 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 44ms (Views: 19.0ms | ActiveRecord: 0.2ms | Allocations: 5096)
 
 
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropReviews (20191112212240)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (13.9ms)[0m  [1m[35mDROP TABLE "reviews"[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191112212240"]]
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCatReviews (20191112212457)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "cat_reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "rating" integer, "review" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191112212457"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRenterReviews (20191112212542)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "renter_reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "rating" integer, "review" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (5.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191112212542"]]
+  [1m[35m (35.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTag Destroy (11.3ms)[0m  [1m[31mDELETE FROM "tags" WHERE "tags"."id" = ?[0m  [["id", 7]]
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" LIMIT ?[0m  [["LIMIT", 11]]

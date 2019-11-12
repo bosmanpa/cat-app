@@ -1,3 +1,7 @@
+<%if flash[:error]%>
+  <%=flash[:error]%>
+<%end%>
+
 <h1><%=@cat.name%></h1>
 <!--insert kitty pic here-->
 <br><br>
@@ -23,3 +27,7 @@
       None
   <%end%>
 </p>
+<%if current_user.id == @cat.owner_id.to_i%>
+  <%= button_to 'Edit ' + @cat.name, edit_cat_path(@cat), method: :get%>
+  <%= button_to 'Delete ' + @cat.name, cat_path(@cat), method: 'delete'%>
+<%end%>
