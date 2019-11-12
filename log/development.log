@@ -4839,3 +4839,169 @@ Migrating to CreateCatTags (20191111211805)
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
   [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/reservations" for ::1 at 2019-11-12 11:14:27 -0600
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/views/reservations/index.html.erb:4
+  Rendered reservations/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 5675)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/patrickbosman/Desktop/Code/cat-app/public/packs
+Completed 200 OK in 2688ms (Views: 2663.3ms | ActiveRecord: 1.1ms | Allocations: 44040)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:14:33 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 75)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 4413)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:14:45 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 73)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms | Allocations: 5202)
+
+
+Started GET "/reservations" for ::1 at 2019-11-12 11:15:07 -0600
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/views/reservations/index.html.erb:4
+  Rendered reservations/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1384)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.4ms | Allocations: 5733)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:15:16 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 72)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 5194)
+
+
+Started GET "/reservations/2" for ::1 at 2019-11-12 11:15:18 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 4190)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:15:21 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 4196)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:15:29 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4184)
+
+
+Started GET "/reservations/5" for ::1 at 2019-11-12 11:15:31 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 4189)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:15:48 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 4186)
+
+
+Started GET "/reservations" for ::1 at 2019-11-12 11:16:08 -0600
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/views/reservations/index.html.erb:4
+  Rendered reservations/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1195)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.2ms | Allocations: 6329)
+
+
+Started GET "/reservations" for ::1 at 2019-11-12 11:16:17 -0600
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/views/reservations/index.html.erb:4
+  Rendered reservations/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1048)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 5244)
+
+
+Started GET "/reservations" for ::1 at 2019-11-12 11:16:18 -0600
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/views/reservations/index.html.erb:4
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCACHE Cat Load (0.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCACHE Cat Load (0.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCACHE Cat Load (0.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  [1m[36mCACHE Cat Load (0.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/reservations/index.html.erb:5
+  Rendered reservations/index.html.erb within layouts/application (Duration: 44.5ms | Allocations: 22685)
+Completed 200 OK in 53ms (Views: 50.4ms | ActiveRecord: 1.3ms | Allocations: 27725)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:16:30 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 72)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4398)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:16:33 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 4192)
+
+
+Started GET "/reservations/1" for ::1 at 2019-11-12 11:16:39 -0600
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4187)
+
+
+Started GET "/reservations/new" for ::1 at 2019-11-12 11:20:10 -0600
+Processing by ReservationsController#new as HTML
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 338)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 5494)
+
+
