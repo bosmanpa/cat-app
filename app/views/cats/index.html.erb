@@ -1,0 +1,22 @@
+
+<h1>All Cats:</h1>
+<br><br>
+<%@cats.each do |cat|%>
+  <h2><%=link_to cat.name, cat%></h2>
+<!--link_to owner-->
+  <h3 style="margin: 0; display: inline;">Owner:</h3>
+  <p style="margin: 0; display: inline;" align="right"><%=cat.owner.name%></p>
+  <br>
+  <h3 style="margin: 0; display: inline;">Neighborhood:</h3>
+  <p style="margin: 0; display: inline;" align="right"><%=cat.neighborhood%></p>
+  <br>
+  <h3 style="margin: 0; display: inline;">Price:</h3>
+  <p style="margin: 0; display: inline;" align="right">$<%=cat.price%></p>
+  <p>Tags: 
+  <%cat.tags[0..2].each do |tag|%>
+<!--link to tag-->
+    #<%=tag.name%> 
+  <%end%></p>
+
+<%end%>
+
