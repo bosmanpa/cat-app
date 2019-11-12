@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   resources :reservations
   resources :cats
   resources :users
+  resources :sessions, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+get '/login', to: 'sessions#new', as: :login
+delete '/logout', to: 'sessions#destroy', as: :logout
 end
