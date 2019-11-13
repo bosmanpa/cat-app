@@ -2,6 +2,6 @@
 
 <ul>
 <% @reservations.each do |reservation| %>
-    <li><%= link_to "#{reservation.date} #{reservation.cat.name}", reservation %></li>
+    <li><%= link_to "#{reservation.date.to_s(:custom_datetime)} #{reservation.cat.name}", reservation %></li>
 <% end  %>
 </ul>

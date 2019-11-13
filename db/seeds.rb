@@ -6,16 +6,59 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+require 'betterlorem'
 
+20.times do
+    User.create(
+        name: Faker::Name.unique.name, 
+        username: Faker::Internet.unique.username, 
+        password: Faker::Internet.password
+    )
+end
+tag_array = ['active', 'affectionate', 'calm', 'cuddly', 'curious', 'friendly', 'gentle', 'greedy', 'grumpy', 'kid-friendly', 'lazy', 'long-haired', 'naughty', 'part-dog', 'purrfect', 'regal', 'sensitive', 'short-haired','shy', 'spoiled rotten', 'timid']
 
+tag_array.each do |tag|
+    Tag.create(name: tag)
+end
 
-User.create([{name: "Herta Beatty"}, {name: "Della Hoeger"}, {name: "Mr. In Von"}, {name: "Loraine Champlin"}, {name: "Salena Fay"}])
+neighborhood_array = ['Lincoln Park', 'Chinatown', 'River North', 'Logan Square', 'Englewood', 'Austin', 'Riverdale', 'Humboldt Park', 'Hyde Park', 'South Chicago', 'Wicker Park', 'West Englewood', 'Oakland']
 
-Tag.create([{name: "fuzzy"}, {name: "cuddly"}, {name: "kid-friendly"}, {name: "bad with crowds"}, {name: "friendly"}, {name: "goofy"}])
+9.times do
+    Cat.create(
+        owner_id: Faker::Number.between(from: 1, to: 20),
+        name: Faker::Creature::Cat.unique.name,
+        breed: Faker::Creature::Cat.breed,
+        price: Faker::Number.within(range: 50..200),
+        neighborhood: neighborhood_array.sample,
+        tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)]
+    )
+end
 
-Cat.create([{owner_id: 1, name: "Angel", neighborhood: "Lincoln Park", price: 100.00, breed: "Khao Manee", tag_ids: [1,2,5]}, {owner_id: 2, name: "Oscar", breed: "Aegean", price: 57.20, neighborhood: "Humboldt Park", tag_ids: [1,5,6]}, {owner_id: 3, name: "Missy", price: 120.00, breed: "Singapura", neighborhood: "Oakland", tag_ids: [1,5]}, {owner_id: 4, name: "Felix", breed: "British Semipi-longhair", price: 50.00, neighborhood: "South Chicago"}, {owner_id: 5, name: "Shadow", breed: "Korat", neighborhood: "Humboldt Park", price: 67.50}])
-Cat.create([{owner_id: 1, name: "Tiger", neighborhood: "Lincoln Park", price: 150.00, breed: "Maine Coon", tag_ids: [1,3,5]}, {owner_id: 1, name: "Charlie", breed: "Oregon Rex", price: 50.00, neighborhood: "Lincoln Park"}, {owner_id: 1, name: "Poppy", breed: "Burmilla", price: 50.00, neighborhood: "Lincoln Park"}])
+50.times do
+    Reservation.create(
+        cat_id: Faker::Number.within(range: 1..9),
+        renter_id: Faker::Number.within(range: 1..20),
+        date: Faker::Date.between(from: 1.year.ago, to: Date.today)
+    )
+end
 
-Reservation.create([{cat_id: 1, renter_id: 3, date: DateTime.now}, {cat_id: 3, renter_id: 5, date: DateTime.now}, {cat_id: 2, renter_id: 2, date: DateTime.now}, {cat_id: 4, renter_id: 2, date: DateTime.now}])
-Reservation.create([{cat_id: 1, renter_id: 5, date: DateTime.now}, {cat_id: 6, renter_id: 4, date: DateTime.now}, {cat_id: 7, renter_id: 2, date: DateTime.now}, {cat_id: 8, renter_id: 3, date: DateTime.now}])
-Reservation.create([{cat_id: 1, renter_id: 6, date: DateTime.now}, {cat_id: 6, renter_id: 2, date: DateTime.now}, {cat_id: 7, renter_id: 5, date: DateTime.now}, {cat_id: 8, renter_id: 4, date: DateTime.now}])
+n = 1
+until n == 51 do
+    CatReview.create(
+        reservation_id: n,
+        rating: Faker::Number.within(range: 1..5),
+        review: BetterLorem.p(1, true)
+    )
+    n += 1
+end
+
+i = 1
+until i == 51 do
+    RenterReview.create(
+        reservation_id: i,
+        rating: Faker::Number.within(range: 1..5),
+        review: BetterLorem.p(1, true)
+    )
+    i += 1
+end
