@@ -19,3 +19,5 @@ Cat.create([{owner_id: 1, name: "Tiger", neighborhood: "Lincoln Park", price: 15
 Reservation.create([{cat_id: 1, renter_id: 3, date: DateTime.now}, {cat_id: 3, renter_id: 5, date: DateTime.now}, {cat_id: 2, renter_id: 2, date: DateTime.now}, {cat_id: 4, renter_id: 2, date: DateTime.now}])
 Reservation.create([{cat_id: 1, renter_id: 5, date: DateTime.now}, {cat_id: 6, renter_id: 4, date: DateTime.now}, {cat_id: 7, renter_id: 2, date: DateTime.now}, {cat_id: 8, renter_id: 3, date: DateTime.now}])
 Reservation.create([{cat_id: 1, renter_id: 6, date: DateTime.now}, {cat_id: 6, renter_id: 2, date: DateTime.now}, {cat_id: 7, renter_id: 5, date: DateTime.now}, {cat_id: 8, renter_id: 4, date: DateTime.now}])
+
+CatReview.create(reservation_id: 1, rating: 4, review: "very good kitt")

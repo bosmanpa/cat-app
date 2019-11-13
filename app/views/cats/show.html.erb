@@ -4,6 +4,8 @@
 
 <h1><%=@cat.name%></h1>
 <!--insert kitty pic here-->
+<%= image_tag "kitten_test.jpg", height: '150', width: '150'%>
+
 <br><br>
 <h2 style="margin: 0; display: inline;">Owner:</h2>
 <!--link to owner-->
@@ -21,7 +23,7 @@
 <p>Tags: 
   <%if @cat.tags.length > 0%>
     <%@cat.tags.each do |tag|%>
-      <%=tag.name%> 
+    #<%=link_to tag.name, tag_search_path(tag.name)%> 
     <%end%>
   <%else%>
       None
