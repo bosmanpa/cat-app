@@ -2,11 +2,6 @@
 <h1>All Cats:</h1>
 <%=button_to "back to all", cats_path, method: 'get'%>
 <br><br>
-<!-- <%=form_with url: name_search_path(:q), method: "get" do |f|%> -->
-  <!-- <%= f.label :q, "Search by Tag" %> -->
-  <!-- <%= f.text_field(:q) %> -->
-  <!-- <%= f.submit("Search") %> -->
-<!-- <% end %> -->
 <%@cats.each do |cat|%>
   <h2><%=link_to cat.name, cat%></h2>
 <!--link_to owner-->

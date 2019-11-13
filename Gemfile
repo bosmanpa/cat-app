@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'faker'
 gem 'betterlorem'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
