@@ -7,7 +7,7 @@ class Cat < ApplicationRecord
 
     def tags_attributes=(tag_attributes)
         tag_attributes.values.each do |tag_attribute|
-            if tag_attribute != nil
+            if tag_attribute != ""
                 tag = Tag.find_or_create_by(tag_attribute)
                 self.tags << tag
             end
