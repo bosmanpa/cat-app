@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
     before_action :authorized
 
     def index
-        @reservations = Reservation.all
+        @reservations = Reservation.all.sort_by{ |r| r.date}
     end
 
     def show

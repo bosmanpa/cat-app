@@ -23,6 +23,12 @@ class CatsController < ApplicationController
     end
   end
 
+  def tagsearch
+    @tag = Tag.find_by(name: params[:tag])
+    @cats = Cat.select{|c| c.tags.include?(@tag)}
+    render :index
+  end
+
   def show
   end
 
@@ -37,8 +43,6 @@ class CatsController < ApplicationController
   def destroy
     @cat.delete
   end
-
-
 
 
 
