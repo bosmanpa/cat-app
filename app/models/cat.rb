@@ -21,7 +21,7 @@ class Cat < ApplicationRecord
     end
 
     def overall_rating #over-all rating as float. If no reviews, returns 0
-        reviews.length > 0? (reviews.map{|r| r[:rating]}.sum / reviews.count).to_f : 0
+        reviews.length > 0? (reviews.map{|r| r[:rating]}.sum.to_f / reviews.count) : 0
     end
 
     def self.most_popular #returns 3 most popular by reservation count
