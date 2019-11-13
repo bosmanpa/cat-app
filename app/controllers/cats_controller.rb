@@ -23,6 +23,12 @@ class CatsController < ApplicationController
     end
   end
 
+  def search
+    @cats = Cat.all.select{|c| c.attributes.values.any?{|v| v.to_s.downcase.include?(params[:q].downcase)}}
+    render :index
+  end
+
+
   def tagsearch
     @tag = Tag.find_by(name: params[:tag])
     @cats = Cat.select{|c| c.tags.include?(@tag)}

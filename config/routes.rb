@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :renter_reviews
   resources :reservations
   get 'cats/search/tags/:tag', to: 'cats#tagsearch', as: :tag_search
-  get 'cats/search/names/:name', to: 'cats#namesearch', as: :name_search
+  get 'cats/search/:q', to: 'cats#search', as: :search
   resources :cats
   resources :users
   resources :sessions, only: [:create]
