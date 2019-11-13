@@ -18429,3 +18429,15 @@ Migrating to CreateRenterReviews (20191112212542)
   [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
   [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
   [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Create (0.4ms)[0m  [1m[32mINSERT INTO "reservations" ("cat_id", "renter_id", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["cat_id", 1], ["renter_id", 21], ["date", "2019-11-13 20:23:53.920974"], ["created_at", "2019-11-13 20:23:53.966346"], ["updated_at", "2019-11-13 20:23:53.966346"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mReservation Create (0.4ms)[0m  [1m[32mINSERT INTO "reservations" ("cat_id", "renter_id", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["cat_id", 12], ["renter_id", 2], ["date", "2019-11-13 21:57:31.769362"], ["created_at", "2019-11-13 21:57:31.813324"], ["updated_at", "2019-11-13 21:57:31.813324"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m

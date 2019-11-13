@@ -1,10 +1,3 @@
-<%if flash[:errors]%>
-<%flash[:errors].each do |error|%>
-<%= error %>
-<% end  %>
-<%end%>
-
-
 <%= form_with model: @cat do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>

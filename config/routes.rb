@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   # resources :cat_tags
   resources :tags
-  resources :cat_reviews
-  resources :renter_reviews
+  get 'reservations/:id/cat_review/new', to: 'cat_reviews#new', as: :new_cat_review
+  resources :cat_reviews, only: [:show, :create]
+  get 'reservations/:id/renter_review/new', to: 'renter_reviews#new', as: :new_renter_review
+  resources :renter_reviews, only: [:show, :create]
+  get 'cats/:id/reservation/new', to: 'reservations#new', as: :new_reservation
   resources :reservations
   get 'cats/search/tags/:tag', to: 'cats#tagsearch', as: :tag_search
   get 'cats/search/:q', to: 'cats#search', as: :search
   resources :cats
+  get 'users/my_profile', to: 'users#myprofile', as: :my_profile
   resources :users
   resources :sessions, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

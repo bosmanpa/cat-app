@@ -41,13 +41,28 @@ class CatsController < ApplicationController
   def edit
     @cat = Cat.find_by(id: params[:id])
     @tags = Tag.all
+    if session[:user_id] == @cat.owner_id
+      render :edit
+    else
+      flash[:errors] = []
+      redirect_to @cat
+    end
+  end
+  
+  def update
+    @cat = Cat.find(params[:id])
+    if @cat.update(cat_params)
+      redirect_to @cat
+    else
+      flash[:errors] = @cat.errors.full_messages
+      redirect_to edit_cat_path(@cat)
+    end
   end
 
-  def update
-  end
 
   def destroy
     @cat.delete
+    redirect_to my_profile_path
   end
 
 
@@ -71,4 +86,9 @@ class CatsController < ApplicationController
   def cat_params
     params.require(:cat).permit(:name, :owner_id, :neighborhood, :breed, :price, tag_ids:[], tags_attributes: [:name])
   end
+
+  def authorized_cat_owner?
+    redirect_to my_profile_path unless session[:user_id] == Cat.find(params[:id]).owner_id
+  end
+    
 end

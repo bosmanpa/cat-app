@@ -13,9 +13,13 @@ require 'betterlorem'
     User.create(
         name: Faker::Name.unique.name, 
         username: Faker::Internet.unique.username, 
-        password: Faker::Internet.password
+        password: "password"
     )
 end
+
+User.create(name: "Pat Bosman", username: "bosmanpa", password: "password")
+User.create(name: "Janae Hall", username: "janaeelisa", password: "password")
+
 tag_array = ['active', 'affectionate', 'calm', 'cuddly', 'curious', 'friendly', 'gentle', 'greedy', 'grumpy', 'kid-friendly', 'lazy', 'long-haired', 'naughty', 'part-dog', 'purrfect', 'regal', 'sensitive', 'short-haired','shy', 'spoiled rotten', 'timid']
 
 tag_array.each do |tag|
