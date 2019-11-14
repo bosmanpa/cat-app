@@ -40,12 +40,13 @@ class Cat < ApplicationRecord
         reviews.length > 0? (reviews.map{|r| r[:rating]}.sum.to_f / reviews.count).round(2) : 0
     end
 
-    def self.most_popular #returns 3 most popular by reservation count
-        all.sort_by{|cat| cat.reservations.count}.reverse[0..2]
-    end
-
     def self.featured #returns most popular cat by rating
         all.sort_by{|cat| cat.overall_rating}.last
+    end
+
+    def self.most_popular #returns 3 most popular by reservation count
+    @cats = self.all.reject{|cat| cat == Cat.featured}
+    @cats.sort_by{|cat| cat.reservations.count}.reverse[0..2]
     end
 
 end

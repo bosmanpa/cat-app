@@ -57,8 +57,9 @@
 <% else %>
   None
 <% end %>
+
 <h2>Reviews of Me</h2>
-<% if @reviews_of_me %>
+<% if @reviews_of_me && !@reviews_of_me.empty? %>
 <%@reviews_of_me.each do |review|%>
      <%= link_to review.reservation.cat.owner.name, review.reservation.cat.owner %>
     <p><%=("⭐️" * review.rating)+("☆" * (5 - review.rating))%><%= review.rating.to_f %>/5</p>
