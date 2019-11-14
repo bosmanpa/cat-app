@@ -17,7 +17,7 @@
     <% end %>
 
     <%= yield %>
-
+    <br><br>
       <% if session[:user_id] %>
       <br>
       You are logged in as <%=User.find_by(id: session[:user_id]).name%>. 

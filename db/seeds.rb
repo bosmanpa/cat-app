@@ -28,7 +28,7 @@ end
 
 neighborhood_array = ['Lincoln Park', 'Chinatown', 'River North', 'Logan Square', 'Englewood', 'Austin', 'Riverdale', 'Humboldt Park', 'Hyde Park', 'South Chicago', 'Wicker Park', 'West Englewood', 'Oakland']
 
-9.times do
+20.times do
     Cat.create(
         owner_id: Faker::Number.between(from: 1, to: 20),
         name: Faker::Creature::Cat.unique.name,
@@ -39,6 +39,11 @@ neighborhood_array = ['Lincoln Park', 'Chinatown', 'River North', 'Logan Square'
     )
 end
 
+Cat.create(owner_id: 21, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)])
+Cat.create(owner_id: 21, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)])
+Cat.create(owner_id: 22, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)])
+Cat.create(owner_id: 22, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)])
+
 50.times do
     Reservation.create(
         cat_id: Faker::Number.within(range: 1..9),
@@ -46,6 +51,11 @@ end
         date: Faker::Date.between(from: 1.year.ago, to: Date.today)
     )
 end
+
+Reservation.create(cat_id: 21, renter_id: 22, date: Faker::Date.between(from: 1.year.ago, to: Date.today))
+Reservation.create(cat_id: 22, renter_id: 22, date: Faker::Date.between(from: 1.year.ago, to: Date.today))
+Reservation.create(cat_id: 23, renter_id: 21, date: Faker::Date.between(from: 1.year.ago, to: Date.today))
+Reservation.create(cat_id: 24, renter_id: 21, date: Faker::Date.between(from: 1.year.ago, to: Date.today))
 
 n = 1
 until n == 51 do
