@@ -6,6 +6,7 @@
   <%=f.text_field :q%>
   <%=f.submit "Search"%>
 <%end%>
+
 <%if @cats.empty? %>
 <br><br>
   No Results Found For "<%= params[:q] %>"

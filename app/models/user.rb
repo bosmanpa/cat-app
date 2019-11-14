@@ -17,11 +17,11 @@ validates :password, length: {minimum: 5}
 
 
   def self_reviews_as_renter #Reviews of user as the renter
-    reservations.map{|r| r.renter_review}
+    reservations.map{|r| r.renter_review}.select{|r| r != nil}
   end
 
   def written_reviews
-    reservations.map{|r| r.cat_review} + owner_reservations.map{|r| r.renter_review}
+    (reservations.map{|r| r.cat_review} + owner_reservations.map{|r| r.renter_review}).select{|r| r != nil}
   end
 
 

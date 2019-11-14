@@ -44,6 +44,7 @@ class CatsController < ApplicationController
   end
 
   def show
+    @reviews = @cat.reviews
   end
 
   def edit
