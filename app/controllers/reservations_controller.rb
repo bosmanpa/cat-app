@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
     def new
         @reservation = Reservation.new
         @cat_id = params[:id]
+        @cat = Cat.find_by(id: params[:id])
     end
 
     def create

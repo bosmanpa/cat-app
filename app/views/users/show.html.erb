@@ -1,27 +1,31 @@
 <h1><%=@user.name%></h1>
 <br><br>
 <h2><%=@user.name%>'s Cats</h2>
-<%@cats.each do |cat|%>
-  <h2><%=link_to cat.name, cat%></h2>
-<!--link_to owner-->
-  <h3 style="margin: 0; display: inline;">Owner:</h3>
-  <p style="margin: 0; display: inline;" align="right"><%=cat.owner.name%></p>
-  <br>
-  <h3 style="margin: 0; display: inline;">Rating:</h3>
-  <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i))%>
-  <%="#{cat.overall_rating} / 5"%></p>
-  <br>
-  <h3 style="margin: 0; display: inline;">Neighborhood:</h3>
-  <p style="margin: 0; display: inline;" align="right"><%=cat.neighborhood%></p>
-  <br>
-  <h3 style="margin: 0; display: inline;">Price:</h3>
-  <p style="margin: 0; display: inline;" align="right">$<%=cat.price%></p>
-  <p>Tags: 
-  <%if cat.tags.length > 0%>
-    <%cat.tags[0..2].each do |tag|%>
+<% if @cats.length > 0 %>
+  <%@cats.each do |cat|%>
+    <h2><%=link_to cat.name, cat%></h2>
+  <!--link_to owner-->
+    <h3 style="margin: 0; display: inline;">Owner:</h3>
+    <p style="margin: 0; display: inline;" align="right"><%=cat.owner.name%></p>
+    <br>
+    <h3 style="margin: 0; display: inline;">Rating:</h3>
+    <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i))%>
+    <%="#{cat.overall_rating} / 5"%></p>
+    <br>
+    <h3 style="margin: 0; display: inline;">Neighborhood:</h3>
+    <p style="margin: 0; display: inline;" align="right"><%=cat.neighborhood%></p>
+    <br>
+    <h3 style="margin: 0; display: inline;">Price:</h3>
+    <p style="margin: 0; display: inline;" align="right">$<%=cat.price%></p>
+    <p>Tags: 
+    <%if cat.tags.length > 0%>
+      <%cat.tags[0..2].each do |tag|%>
       #<%=link_to tag.name, "cats/?q=#{tag.name}"%> 
-    <%end%>
-  <%else%>
-    None
-  <%end%></p>
-<% end %>
+      <%end%>
+    <%else%>
+      <p>None</p>
+    <%end%></p>
+  <% end %>
+<%else %>
+  <p>None</p>
+  <% end %>

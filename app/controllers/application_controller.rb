@@ -10,7 +10,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized
-    redirect_to login_path unless logged_in?
+    if !logged_in?
+    flash[:errors] = ["You must be logged in to do that!"]
+    redirect_to login_path
+    end
   end
 
   def already_signed_in?

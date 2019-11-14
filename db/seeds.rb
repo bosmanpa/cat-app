@@ -35,14 +35,14 @@ neighborhood_array = ['Lincoln Park', 'Chinatown', 'River North', 'Logan Square'
         breed: Faker::Creature::Cat.breed,
         price: Faker::Number.within(range: 50..200),
         neighborhood: neighborhood_array.sample,
-        tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)]
+        tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)].uniq
     )
 end
 
-Cat.create(owner_id: 21, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)])
-Cat.create(owner_id: 21, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)])
-Cat.create(owner_id: 22, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)])
-Cat.create(owner_id: 22, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)])
+Cat.create(owner_id: 21, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)].uniq)
+Cat.create(owner_id: 21, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)].uniq)
+Cat.create(owner_id: 22, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)].uniq)
+Cat.create(owner_id: 22, name: Faker::Creature::Cat.unique.name, breed: Faker::Creature::Cat.breed, price: Faker::Number.within(range: 50..200), neighborhood: neighborhood_array.sample, tag_ids: [Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21), Faker::Number.within(range: 1..21)].uniq)
 
 50.times do
     Reservation.create(

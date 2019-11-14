@@ -1,4 +1,3 @@
-
 class CatsController < ApplicationController
   before_action :find_cat, only: [:show, :edit, :update, :destroy]
   before_action :authorized, only: [:new]
@@ -68,7 +67,11 @@ class CatsController < ApplicationController
 
 
   def destroy
-    @cat.delete
+    # @reservations = @cat.reservations
+    # @reservations.each do |reservation|
+    #   reservation.destroy
+    # end
+    @cat.destroy
     redirect_to my_profile_path
   end
 

@@ -3,6 +3,7 @@
 <h2>My Cats</h2>
 <%= button_to "Add a New Cat", new_cat_path, method: :get %>
 
+<% if @cats.length > 0  %>
 <%@cats.each do |cat|%>
   <h2><%=link_to cat.name, cat%></h2>
   <%= button_to 'Edit ' + cat.name, edit_cat_path(cat), method: :get%>
@@ -40,6 +41,11 @@
 <p>None</p>
 <% end %>
 <% end %>
+<% else %>
+<p>None</p>
+<% end %>
+
+
 <br><br>
 <h2>My Reservations</h2>
 <% if @reservations.length > 0 %>
@@ -52,8 +58,8 @@
   None
 <% end %>
 <h2>Reviews of Me</h2>
-<% if @reviews_of_me.length > 0 %>
-  <%@reviews_of_me.each do |review|%>
+<% if @reviews_of_me %>
+<%@reviews_of_me.each do |review|%>
     <%= link_to review.reservation.cat.owner.name, review.reservation.cat.owner %>
     <p><%=("⭐️" * review.rating)+("☆" * (5 - review.rating))%><%= review.rating.to_f %>/5</p>
   <%end%>
