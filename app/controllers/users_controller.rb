@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       @user = User.find_by(id: session[:user_id])
       @cats = @user.cats
       @reservations = @user.reservations
-      @reviews_of_me = @user.self_reviews_as_renter
+      @reviews_of_me = @user.self_reviews_as_renter.delete(nil)
     end
 
     def show

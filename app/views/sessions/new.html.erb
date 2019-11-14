@@ -1,6 +1,12 @@
+ <% if flash[:errors]  %>
+ <% flash[:errors].each do |error| %>
+<p><%=  error %></p>
+<% end %>
+<% end %>
+
 <h1>Sign in to Cat App</h1>
 
-<%=form_with url: '/sessions' do |f|%>
+ <%=form_with url: '/sessions' do |f|%>
   <%=f.label :username%>
   <%=f.text_field :username%>
   <%=f.label :password%>

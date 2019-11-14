@@ -1,4 +1,3 @@
-require 'pry'
 class CatsController < ApplicationController
   before_action :find_cat, only: [:show, :edit, :update, :destroy]
   before_action :authorized, only: [:new]
@@ -10,7 +9,9 @@ class CatsController < ApplicationController
     if params[:q]
         @cats_atts = Cat.select{|c| c.attributes.values.any?{|v| v.to_s.downcase.include?(params[:q].downcase)}}
         @cats_owner = Cat.select{|c| c.owner.name.downcase.include?(params[:q].downcase)}
-        @cats = @cats_owner + @cats_atts
+        # @tags = Tag.select{|t| t.name.downcase.include?(params[:q].downcase)}
+        # @cats_tag = @tags.each{|t| t.map{|t| t.cats}}.flatten.uniq
+        # @cats = (@cats_owner + @cats_atts + @cats_tag).uniq
       else
       @cats = Cat.all
     end
@@ -67,7 +68,11 @@ class CatsController < ApplicationController
 
 
   def destroy
-    @cat.delete
+    # @reservations = @cat.reservations
+    # @reservations.each do |reservation|
+    #   reservation.destroy
+    # end
+    @cat.destroy
     redirect_to my_profile_path
   end
 

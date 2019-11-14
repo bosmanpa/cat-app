@@ -8,10 +8,6 @@
 <!--link to owner-->
 <h3 style="margin: 0; display: inline;" align="right"><%=@cat.owner.name%></h3>
 <br>
-<h3 style="margin: 0; display: inline;">Rating:</h3>
-<p style="margin: 0; display: inline;" align="right"><%=("⭐️" * @cat.overall_rating.to_i)+("☆" * (5 - @cat.overall_rating.to_i))%>
-<%="#{@cat.overall_rating} / 5"%></p>
-<br>
 <h2 style="margin: 0; display: inline;">Breed:</h2>
 <h3 style="margin: 0; display: inline;" align="right"><%=@cat.breed%></h3>
 <br>

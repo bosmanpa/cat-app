@@ -1,4 +1,4 @@
-<h1>Rental Form</h1>
+<h1>Rent <%= @cat.name %></h1>
 
 <%= form_with model: @reservation do |f| %>
     <input type="hidden" name="reservation[cat_id]" value=<%=@cat_id%>>
