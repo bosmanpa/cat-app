@@ -1,11 +1,15 @@
 <h1>All Cats:</h1>
-<%=button_to "back to all", cats_path, method: :get%>
+<div class='button'>
+<%=button_to "Back To All Cats", cats_path, method: :get%>
+</div>
 
+<div class='form'>
 <%=form_with url: '/cats/search' do |f|%>
-  <%=f.label :q, "Search Cats"%>
+  <p><%=f.label :q, "Search Cats"%></p>
   <%=f.text_field :q%>
   <%=f.submit "Search"%>
 <%end%>
+</div>
 
 <%if @cats.empty? %>
 <br><br>
@@ -13,7 +17,7 @@
   <br><br>
 <% else %>
 <br><br>
-  <%@cats.each do |cat|%>
+ <div class='form'> <%@cats.each do |cat|%>
     <% if cat.image.attached?%>
       <%= image_tag cat.image, height: '150', width: '150' %>
     <% else %>
