@@ -33,8 +33,19 @@
   <%else%>
       None
   <%end%>
+<%= button_to "Rent This Cat", new_reservation_path(@cat), method: :get %>
 </p>
 <%if current_user && current_user.id == @cat.owner_id.to_i%>
   <%= button_to 'Edit ' + @cat.name, edit_cat_path(@cat), method: :get%>
   <%= button_to 'Retire ' + @cat.name, cat_path(@cat), method: 'delete'%>
 <%end%>
+<h2>Reviews of <%= @cat.name %></h2>
+<% if @reviews %>
+<%@reviews.each do |review|%>
+     <%= link_to review.reservation.renter.name, review.reservation.renter.name %>
+    <p><%=("⭐️" * review.rating)+("☆" * (5 - review.rating))%><%= review.rating.to_f %>/5</p>
+    <p>"<%= review.review %>"</p>
+  <%end%>
+<% else %>
+  None
+<% end %>
