@@ -30,7 +30,6 @@ class CatsController < ApplicationController
 
 
   def tagsearch
-    @tag = Tag.find_by(name: params[:tag])
     @cats = Cat.select{|c| c.tags.include?(@tag)}
     render :index
   end
@@ -39,7 +38,6 @@ class CatsController < ApplicationController
   end
 
   def edit
-    @cat = Cat.find_by(id: params[:id])
     @tags = Tag.all
     if session[:user_id] == @cat.owner_id
       render :edit
@@ -50,7 +48,6 @@ class CatsController < ApplicationController
   end
   
   def update
-    @cat = Cat.find(params[:id])
     if @cat.update(cat_params)
       redirect_to @cat
     else
@@ -80,7 +77,7 @@ class CatsController < ApplicationController
 
   
   def find_cat
-    @cat = Cat.find(params[:id])
+    @cat = Cat.find_by(id: params[:id])
   end
 
   def cat_params

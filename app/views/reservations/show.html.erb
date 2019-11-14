@@ -1,1 +1,17 @@
+<h1><%= @reservation.date.to_s(:custom_datetime) %></h1><br>
+<h2>Cat: <%= link_to @reservation.cat.name, @reservation.cat %></h2><br>
+<h2>Renter: <%= link_to @reservation.renter.name, @reservation.renter %></h2><br>
+<br>
+
+<% if session[:user_id] == @reservation.renter_id %>
 <%= button_to "Review this Cat", new_cat_review_path(params[:id]), method: :get %>
+<%= button_to "Edit this Reservation", edit_reservation_path(@reservation), method: :get %>
+<%= button_to "Cancel this Reservation", reservation_path(@reservation), method: :delete%>
+<% end %>
+
+
+<% if session[:user_id]  == @reservation.cat.owner_id %>
+<%= button_to "Review this Renter", new_renter_review_path(params[:id]), method: :get %>
+<%= button_to "Cancel this Reservation", reservation_path(@reservation), method: :delete %>
+
+<% end %>

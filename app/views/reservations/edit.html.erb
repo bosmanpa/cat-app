@@ -1,7 +1,6 @@
-<h1>Rental Form</h1>
 
 <%= form_with model: @reservation do |f| %>
-    <input type="hidden" name="reservation[cat_id]" value=<%=@cat_id%>>
+    <input type="hidden" name="cat_id" value=<%=@cat_id%>>
     <%= f.label :date %>
     <%= f.date_field :date %>
     <%= f.submit %>
