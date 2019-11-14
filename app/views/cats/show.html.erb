@@ -32,7 +32,7 @@
 <p>Tags: 
   <%if @cat.tags.length > 0%>
     <%@cat.tags.each do |tag|%>
-    #<%=link_to tag.name, tag_search_path(tag.name)%> 
+    #<%=link_to tag.name, "/cats/?q=#{tag.name}"%> 
     <%end%>
   <%else%>
       None

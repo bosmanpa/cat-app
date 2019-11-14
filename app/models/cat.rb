@@ -14,6 +14,22 @@ class Cat < ApplicationRecord
         end
     end
 
+    def self.search_by_attributes(params)
+       self.select{|c| c.attributes.values.any?{|v| v.to_s.downcase.include?(params.downcase)}}
+    end
+
+    def self.search_by_owner(params)
+        self.select{|c| c.owner.name.downcase.include?(params.downcase)}
+    end
+
+    def self.search_by_tags(params)
+        @tags = Tag.select{|tag| tag.name.downcase.include?(params)}
+        @cats = @tags.map do |tag|
+            tag.cats
+        end.flatten
+    end
+
+
 
 
     def reviews #all reviews for cat. Returns hash w/ reviewer, review, rating

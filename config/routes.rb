@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get 'reservations/:id/renter_review/new', to: 'renter_reviews#new', as: :new_renter_review
   resources :renter_reviews, only: [:show, :create]
   get '/', to: 'cats#homepage', as: :homepage 
-  get 'cats/search/tags/:tag', to: 'cats#tagsearch', as: :tag_search
-  post 'cats/search', to: 'cats#search'
+  post 'cats/search', to: 'cats#search', as: :search
   resources :cats
   get 'cats/:id/reservation/new', to: 'reservations#new', as: :new_reservation
   resources :reservations

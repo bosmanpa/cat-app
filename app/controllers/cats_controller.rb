@@ -8,9 +8,10 @@ class CatsController < ApplicationController
 
   def index
     if params[:q]
-        @cats_atts = Cat.select{|c| c.attributes.values.any?{|v| v.to_s.downcase.include?(params[:q].downcase)}}
-        @cats_owner = Cat.select{|c| c.owner.name.downcase.include?(params[:q].downcase)}
-        @cats = @cats_owner + @cats_atts
+        @cats_atts = Cat.search_by_attributes(params[:q])
+        @cats_owner = Cat.search_by_owner(params[:q])
+        @cats_tags = Cat.search_by_tags(params[:q])
+        @cats = (@cats_owner + @cats_atts + @cats_tags).uniq
       else
       @cats = Cat.all
     end
