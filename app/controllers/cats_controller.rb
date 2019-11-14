@@ -1,4 +1,4 @@
-require 'pry'
+
 class CatsController < ApplicationController
   before_action :find_cat, only: [:show, :edit, :update, :destroy]
   before_action :authorized, only: [:new]
@@ -78,15 +78,6 @@ class CatsController < ApplicationController
 
 
   private
-
-  # def valid_owner?
-  #   @cat = Cat.find(params[:id])
-  #   if !@cat.owner_id.to_i == 10000000
-  #     redirect_to @cat
-  #     flash[:error] = "You are not the owner of this cat"
-  #   end
-  # end
-
   
   def find_cat
     @cat = Cat.find(params[:id])
