@@ -23,7 +23,6 @@ class CatsController < ApplicationController
   end
 
   def create
-    p cat_params[:tags_attributes]
     @cat = Cat.new(cat_params)
     @cat.owner_id = session[:user_id]
     if @cat.save
@@ -82,7 +81,7 @@ class CatsController < ApplicationController
   end
 
   def cat_params
-    params.require(:cat).permit(:name, :owner_id, :neighborhood, :breed, :price, tag_ids:[], tags_attributes: [:name])
+    params.require(:cat).permit(:name, :owner_id, :neighborhood, :image, :breed, :price, tag_ids:[], tags_attributes: [:name])
   end
 
   def authorized_cat_owner?

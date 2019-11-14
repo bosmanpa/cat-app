@@ -7,7 +7,9 @@
   <%= f.text_field :neighborhood %><br>
   <%= f.label :price %>
   $<%= f.number_field :price%><br>
-  <%= f.label :tag_ids, "Tags" %>
+  <%= f. label :image %>
+  <%= f.file_field :image %><br>
+  <%= f.label :tag_ids, "Tags" %><br>
   <%= f.collection_check_boxes :tag_ids, @tags, :id, :name%><br>
   <%= f.label :tags, "Add New Tags"%>
   <%= f.fields_for :tags, @cat.tags.build do |tags_fields| %>
