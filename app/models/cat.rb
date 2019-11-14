@@ -3,6 +3,9 @@ class Cat < ApplicationRecord
     has_many :reservations, dependent: :destroy
     has_many :cat_tags, dependent: :destroy
     has_many :tags, through: :cat_tags
+    has_one_attached :image
+
+
     validates :name, presence: true
 
     def tags_attributes=(tag_attributes)
@@ -29,9 +32,6 @@ class Cat < ApplicationRecord
         end.flatten
     end
 
-
-
-
     def reviews #all reviews for cat. Returns hash w/ reviewer, review, rating
         self.reservations.map{|r| r.cat_review}.select{|c_r| c_r != nil}
     end
@@ -47,4 +47,5 @@ class Cat < ApplicationRecord
     def self.featured #returns most popular cat by rating
         all.sort_by{|cat| cat.overall_rating}.last
     end
+
 end
