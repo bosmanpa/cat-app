@@ -1,7 +1,6 @@
 class CatsController < ApplicationController
   before_action :find_cat, only: [:show, :edit, :update, :destroy]
   before_action :authorized, only: [:new]
-
   def homepage
   end
 
@@ -73,6 +72,12 @@ class CatsController < ApplicationController
     # end
     @cat.destroy
     redirect_to my_profile_path
+  end
+
+  def cat_stats
+    @cats = Cat.all
+    @featured_cat = Cat.featured
+    @top3 = Cat.most_popular
   end
 
 
