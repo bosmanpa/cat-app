@@ -1,8 +1,11 @@
 <h1><%=@cat.name%></h1>
 <%=button_to "back to all", cats_path, method: 'get'%>
 <!--insert kitty pic here-->
-<%= image_tag "kitten_test.jpg", height: '150', width: '150'%>
-
+<% if @cat.image.attached?%>
+  <%= image_tag @cat.image, height: '150', width: '150' %>
+<% else %>
+  <%=   image_tag "kitten_test.jpg", height: '150', width: '150'%>
+<% end %>
 <br><br>
 <h2 style="margin: 0; display: inline;">Owner:</h2>
 <!--link to owner-->
