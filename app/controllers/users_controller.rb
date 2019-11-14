@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :authorized, only: [:edit, :destroy]
+  before_action :already_signed_in?, only: :new
+  layout :layout
   
     def new
-        @user = User.new
+      @user = User.new
     end
 
     def create
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
       @user = User.find_by(id: session[:user_id])
       @cats = @user.cats
       @reservations = @user.reservations
+      @reviews_of_me = @user.self_reviews_as_renter
     end
 
     def show
@@ -34,4 +37,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :username, :password, :password_confirmation)
     end
 
+    def layout
+      session[:user_id] ? "application" : "account_menu"
+    end
 end

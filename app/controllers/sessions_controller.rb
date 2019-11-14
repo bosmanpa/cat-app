@@ -1,5 +1,10 @@
 class SessionsController < ApplicationController
+  layout :layout
+  before_action :already_signed_in?, only: :new
+
+
   def new
+    render :layout => false
   end
 
   def create
@@ -15,5 +20,12 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to login_path
+  end
+
+  private
+
+  def layout
+    session[:user_id] ? "application_layout" : "account_menu"
+
   end
 end

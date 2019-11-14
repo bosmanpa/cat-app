@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   resources :cat_reviews, only: [:show, :create]
   get 'reservations/:id/renter_review/new', to: 'renter_reviews#new', as: :new_renter_review
   resources :renter_reviews, only: [:show, :create]
+  get '/', to: 'cats#homepage', as: :homepage 
+  get 'cats/search/tags/:tag', to: 'cats#tagsearch', as: :tag_search
+  post 'cats/search', to: 'cats#search'
+  resources :cats
   get 'cats/:id/reservation/new', to: 'reservations#new', as: :new_reservation
   resources :reservations
-  get 'cats/search/tags/:tag', to: 'cats#tagsearch', as: :tag_search
-  get 'cats/search/:q', to: 'cats#search', as: :search
-  resources :cats
   get 'users/my_profile', to: 'users#myprofile', as: :my_profile
   resources :users
   resources :sessions, only: [:create]

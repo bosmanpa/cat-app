@@ -5,14 +5,18 @@
 
 <%@cats.each do |cat|%>
   <h2><%=link_to cat.name, cat%></h2>
-    <%= button_to 'Edit ' + cat.name, edit_cat_path(cat), method: :get%>
-    <%= button_to 'Retire ' + cat.name, cat_path(cat), method: 'delete'%>
+  <%= button_to 'Edit ' + cat.name, edit_cat_path(cat), method: :get%>
+  <%= button_to 'Retire ' + cat.name, cat_path(cat), method: 'delete'%></div>
   <h3 style="margin: 0; display: inline;">Owner:</h3>
   <p style="margin: 0; display: inline;" align="right"><%=cat.owner.name%></p>
   <br>
   <h3 style="margin: 0; display: inline;">Rating:</h3>
-  <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i))%>
-  <%="#{cat.overall_rating} / 5"%></p>
+  <% if cat.overall_rating > 0 %>
+    <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i))%>
+    <%="#{cat.overall_rating} / 5"%></p>
+  <% else %>
+    None
+  <% end %>
   <br>
   <h3 style="margin: 0; display: inline;">Neighborhood:</h3>
   <p style="margin: 0; display: inline;" align="right"><%=cat.neighborhood%></p>
@@ -27,7 +31,7 @@
   <%else%>
     None
   <%end%></p>
-<h2> <%= cat.name %>'s Reservations</h2>
+<h3> <%= cat.name %>'s Reservations:</h3>
 <% if cat.reservations.length > 0%>
 <ul><% cat.reservations.each do |reservation| %>
     <li><%= link_to "#{reservation.date.to_s(:custom_datetime)}", reservation %></li>
@@ -38,10 +42,25 @@
 <% end %>
 <br><br>
 <h2>My Reservations</h2>
-<ul>
-<% @reservations.each do |reservation| %>
-    <li><%= link_to "#{reservation.date.to_s(:custom_datetime)} #{reservation.cat.name}", reservation %></li>
-<% end  %>
-</ul>
+<% if @reservations.length > 0 %>
+  <ul>
+    <% @reservations.each do |reservation| %>
+      <li><%= link_to "#{reservation.date.to_s(:custom_datetime)} #{reservation.cat.name}", reservation %></li>
+    <% end  %>
+  </ul>
+<% else %>
+  None
+<% end %>
+<h2>Reviews of Me</h2>
+<% if @reviews_of_me.length > 0 %>
+  <%@reviews_of_me.each do |review|%>
+    <%= link_to review.reservation.cat.owner.name, review.reservation.cat.owner %>
+    <p><%=("⭐️" * review.rating)+("☆" * (5 - review.rating))%><%= review.rating.to_f %>/5</p>
+  <%end%>
+<% else %>
+  None
+<% end %>
+
+
 
 

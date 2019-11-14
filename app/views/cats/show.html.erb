@@ -17,6 +17,14 @@
 <h2 style="margin: 0; display: inline;">Neighborhood:</h2>
 <h3 style="margin: 0; display: inline;" align="right"><%=@cat.neighborhood%></h3>
 <br>
+ <h2 style="margin: 0; display: inline;">Rating:</h2>
+  <% if @cat.overall_rating > 0 %>
+    <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * @cat.overall_rating.to_i)+("☆" * (5 - @cat.overall_rating.to_i))%>
+    <%="#{@cat.overall_rating} / 5"%></p>
+  <% else %>
+    None
+  <% end %>
+  <br>
 <p>Tags: 
   <%if @cat.tags.length > 0%>
     <%@cat.tags.each do |tag|%>

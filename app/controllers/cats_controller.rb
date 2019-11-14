@@ -1,9 +1,19 @@
+require 'pry'
 class CatsController < ApplicationController
   before_action :find_cat, only: [:show, :edit, :update, :destroy]
   before_action :authorized, only: [:new]
 
+  def homepage
+  end
+
   def index
-    @cats = Cat.all
+    if params[:q]
+        @cats_atts = Cat.select{|c| c.attributes.values.any?{|v| v.to_s.downcase.include?(params[:q].downcase)}}
+        @cats_owner = Cat.select{|c| c.owner.name.downcase.include?(params[:q].downcase)}
+        @cats = @cats_owner + @cats_atts
+      else
+      @cats = Cat.all
+    end
   end
   
   def new
@@ -24,8 +34,7 @@ class CatsController < ApplicationController
   end
 
   def search
-    @cats = Cat.all.select{|c| c.attributes.values.any?{|v| v.to_s.downcase.include?(params[:q].downcase)}}
-    render :index
+    redirect_to "/cats/?q=#{params[:q]}"
   end
 
 

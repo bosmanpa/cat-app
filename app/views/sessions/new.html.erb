@@ -1,9 +1,11 @@
+<h1>Sign in to Cat App</h1>
+
 <%=form_with url: '/sessions' do |f|%>
   <%=f.label :username%>
   <%=f.text_field :username%>
   <%=f.label :password%>
   <%=f.password_field :password%>
-  <%=f.submit%>
+  <%=f.submit "Sign in"%>
 <%end%>
 <br><br>
-New User? <%= button_to "Sign up", new_user_path, method: :get %>
+<p>New User? Click <a href='/users/new'>here</a> to sign up!</p>

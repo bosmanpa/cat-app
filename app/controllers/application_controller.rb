@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def authorized
     redirect_to login_path unless logged_in?
   end
+
+  def already_signed_in?
+    redirect_to my_profile_path unless !session[:user_id]
+  end
 end
