@@ -5,6 +5,7 @@ class CatReviewsController < ApplicationController
   def new
     @cat_review = CatReview.new
     @reservation_id = params[:id]
+    @cat = Reservation.find_by(id: params[:id]).cat
     if session[:user_id] == Reservation.find_by(id: @reservation_id).renter_id
       render :new
     else 

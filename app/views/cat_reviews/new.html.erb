@@ -1,4 +1,5 @@
-<div class="page">
+ <h1 style='border:solid; padding:50px;'>Review <%= @cat.name %></h1>
+
 <%= form_with model: @cat_review do |f| %>
     <input type="hidden" name="cat_review[reservation_id]" value=<%=@reservation_id%>>
     <p><%= f.label :rating%></p>
