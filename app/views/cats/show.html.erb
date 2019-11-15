@@ -5,7 +5,10 @@
   <br>
   <%= render partial: "layouts/cat_display", locals: {cat: @cat} %>
   <br>
-  <% if session[:user_id] != @cat.owner_id %>
+  <% if session[:user_id] == @cat.owner_id %>
+    <div class='button'><%= button_to "Edit #{@cat.name}", edit_cat_path(@cat), method: :get %></div>
+    <div class='button'><%= button_to "Retire #{@cat.name}", @cat, method: :delete %></div>
+  <% else %>
     <div class='button'><%=button_to 'Rent This Cat', new_reservation_path(@cat), method: :get%></div>
   <% end %>
   <br><br><br>
