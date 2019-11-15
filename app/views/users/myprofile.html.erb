@@ -1,18 +1,19 @@
 <div class='page'>
-
-<h1><%=@user.name%></h1>
+<h1 style='border:solid; padding:50px;'>My Profile</h1>
 <br><br>
-<h2>My Cats</h2>
+<div class='form'><h2>My Cats</h2></div>
 <div class="button">
 <%= button_to "Add a New Cat", new_cat_path, method: :get %>
 </div>
 <br>
-<div class="form">
+<%# <div class="form"> %>
 <% if @cats.length > 0  %>
 <%@cats.each do |cat|%>
+<div class='cat'>
   <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
     <br><br>
-  <% end %>
+  <% end %></div>
+<div class="form">
 <% else %>
 <p>None</p>
 <% end %>
@@ -21,16 +22,15 @@
 
 <h2>My Reservations</h2>
 <% if @reservations.length > 0 %>
-  <ul>
     <% @reservations.each do |reservation| %>
-      <li><%= link_to "#{reservation.date.to_s(:custom_datetime)} #{reservation.cat.name}", reservation %></li>
+      <%= link_to "#{reservation.date.to_s(:custom_datetime)} #{reservation.cat.name}", reservation %>
+      <br>
     <% end  %>
-  </ul>
 <% else %>
-  None
+  <p>None</p>
 <% end %>
 
-
+<br><br>
 
 <h2>Reviews of Me</h2>
 <% if @reviews_of_me && !@reviews_of_me.empty? %>
@@ -44,6 +44,6 @@
 <% end %>
 </div>
 
-</div>
+<%# </div> %>
 
 

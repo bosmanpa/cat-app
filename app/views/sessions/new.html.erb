@@ -1,26 +1,20 @@
  <div class='page'>
-
- <% if flash[:errors]  %>
- <% flash[:errors].each do |error| %>
-<p><%=  error %></p>
-<% end %>
-<% end %>
-
 <h1>Sign in to Cat App</h1>
+<br><br>
 <div class="form">
  <%=form_with url: '/sessions' do |f|%>
   <p><%=f.label :username, "Username"%></p>
   <%=f.text_field :username%>
-  <br><br>
+  <br>
   <p><%=f.label :password%></p>
   <%=f.password_field :password%>
-  <br><br>
+  <br>
   <div style="text-align:center;">
   <br>
   <%=f.submit "Sign in"%>
   </div>
-  </div>
 <%end%>
 <br><br>
 <p>New User? Click <a href='/users/new'>here</a> to sign up!</p>
+</div>
 </div>

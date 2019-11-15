@@ -1,9 +1,8 @@
-<div class="form">
 <%= form_with model: @cat do |f| %>
-  <p><p><%= f.label :name %></p>
-  <%= f.text_field :name %><br>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p><br>
   <p><%= f.label :breed%></p>
-  <%= f.text_field :breed %><br>
+  <p><%= f.text_field :breed %></p><br>
   <p><%= f.label :neighborhood %></p>
   <%= f.text_field :neighborhood %><br>
   <p><%= f.label :price %></p>
@@ -18,5 +17,4 @@
   <%end%>
   <br>
   <%= f.submit %>
-  </div>
 <%end%>

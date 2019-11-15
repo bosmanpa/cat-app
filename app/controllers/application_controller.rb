@@ -5,13 +5,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def help!
-    if User.find_by(id: session[:user_id]) == nil
-      session[:user_id] = nil
-      redirect_to login_path
-    end
-  end
-
   def logged_in?
     !!current_user
   end

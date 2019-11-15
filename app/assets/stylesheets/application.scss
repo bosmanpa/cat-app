@@ -16,6 +16,12 @@
 
 @import 'bootstrap';
 
+
+.image{
+    margin-left:50px;
+    margin-right:50px;
+
+}
 body {
     background-image: url("https://wallpaperset.com/w/full/a/a/b/180027.jpg");
     background-color: #cccccc;
@@ -26,26 +32,37 @@ body {
 
 h1 {
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(48, 24, 24);
+  }
+
+
+h1.cat {
+    text-align: left;
+    margin-left:50px;
+    color: rgb(48, 24, 24);
   }
   
-h2{
-    text-align: center;
-    color: rgb(255, 255, 255);
-}
+// h2{
+//     text-align: left;
+//     color: rgb(255, 255, 255);
+// }
 
 h3{
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(48, 24, 24);
+}
+
+h4{
+    color: rgb(48, 24, 24);
 }
 
 a{
-    color: rgb(255, 255, 255);
+    color: rgb(48, 24, 24);
 }
 
 p{
-    text-align: center;
-    color: rgb(255, 255, 255);
+    display: inline-block;
+    color: rgb(48, 24, 24);
 }
 
 img {
@@ -78,8 +95,10 @@ button {
 }
 
 #catpicname{
-    display:inline-block;
-    margin-right:10px;
+    display:block;
+    margin-left:50px;
+    margin-right:50px;
+
 } 
 #catinfo {
     display:inline-block;
@@ -90,11 +109,33 @@ div.log {
 text-align: center;
 }
 
-div.page {
-    margin-right: 500px;
-    margin-left: 500px;
+.page {
+    margin-right: 400px;
+    margin-left: 400px;
     padding-bottom: 600px;
-    background-color:rgba(255,99,71,0.5);
+    background-color:rgba(63, 43, 39, 0.5);
 
 
+}
+
+.catshowimage{
+    padding:50px;
+    border:burlywood;
+    margin:20px
+}
+
+.catshowinfo{
+    display:block;
+
+}
+
+.reviews{
+    margin:20px;
+}
+
+.error{
+    text-align:center;
+    margin-right: 400px;
+    margin-left: 400px;
+    background-color:rgba(177, 56, 31, 0.5);
 }

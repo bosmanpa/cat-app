@@ -1,12 +1,26 @@
-<div class=page>
-<h1><%=@cat.name%></h1>
-<%=button_to "back to all", cats_path, method: 'get'%>
-</div>
-<br>
-<div class="form">
-<%= render partial: "layouts/cat_display", locals: {cat: @cat} %>
-</div>
-<<<<<<< HEAD
 
-=======
->>>>>>> pat
+
+
+<div class='page'>
+  <br>
+  <%= render partial: "layouts/cat_display", locals: {cat: @cat} %>
+  <br>
+  <% if session[:user_id] != @cat.owner_id %>
+    <div class='button'><%=button_to 'Rent This Cat', new_reservation_path(@cat), method: :get%></div>
+  <% end %>
+  <br><br><br>
+  <div class='form'>
+  <h3>Reviews of <%= @cat.name %></h3>
+  <% if !@cat.reviews.empty? %>
+    <div class='reviews'>
+      <% @reviews.each do |review|%>
+      <h5><%=link_to review.reservation.renter.name, review.reservation.renter %></h5>
+      <%=("⭐️" * review.rating)+("☆" * (5 - review.rating)) %>
+      <p>"<%= review.review %>"</p>
+      <br>
+      <% end %></div>
+  <% else %>
+    <p>None</p>
+    <% end %>
+</div>
+</div>

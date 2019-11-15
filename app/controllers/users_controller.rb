@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorized, only: [:edit, :destroy]
   before_action :already_signed_in?, only: :new
-  layout :layout
   
     def new
       @user = User.new
