@@ -3,8 +3,11 @@
 <h1><%=@user.name%></h1>
 <br><br>
 <h2>My Cats</h2>
+<div class="button">
 <%= button_to "Add a New Cat", new_cat_path, method: :get %>
-
+</div>
+<br>
+<div class="form">
 <% if @cats.length > 0  %>
 <%@cats.each do |cat|%>
   <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
@@ -14,8 +17,8 @@
 <p>None</p>
 <% end %>
 
-
 <br><br>
+
 <h2>My Reservations</h2>
 <% if @reservations.length > 0 %>
   <ul>
@@ -27,6 +30,8 @@
   None
 <% end %>
 
+
+
 <h2>Reviews of Me</h2>
 <% if @reviews_of_me && !@reviews_of_me.empty? %>
 <%@reviews_of_me.each do |review|%>
@@ -35,10 +40,10 @@
     <p>"<%= review.review %>"</p>
   <%end%>
 <% else %>
-  None
+  <p>None</p>
 <% end %>
 </div>
 
-
+</div>
 
 

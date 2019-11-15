@@ -18,18 +18,20 @@
 
     <%= yield %>
     <br><br>
+    <div class="log">
       <% if session[:user_id] && User.find_by(id: session[:user_id]) != nil %>
         <br>
-        You are logged in as <%=User.find_by(id: session[:user_id]).name%>. 
+        <p>You are logged in as <%=User.find_by(id: session[:user_id]).name%>.</p>
         <%= button_to "My Profile", my_profile_path, method: :get %>
         <%= button_to "View All Cats", cats_path, method: :get %>
         <%= button_to "Logout", logout_path, method: :delete%> 
       <%else%>
-        Already Have An Account?
+        <p>Already Have An Account?</p>
         <%=button_to "Login", login_path, method: :get%>
-        New User? 
+        <p>New User?</p> 
         <%= button_to "Sign up", new_user_path, method: :get %>
         
     <% end %>
+    </div>
     </body>
 </html>
