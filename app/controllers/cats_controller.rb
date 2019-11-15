@@ -17,7 +17,7 @@ class CatsController < ApplicationController
   
   def new
     @cat = Cat.new
-    @tags = Tag.all
+    @tags = Tag.all.sample(20)
   end
 
   def create
@@ -46,7 +46,7 @@ class CatsController < ApplicationController
   end
 
   def edit
-    @tags = Tag.all
+    @tags = Tag.all.sample(20)
     if session[:user_id] == @cat.owner_id
       render :edit
     else
