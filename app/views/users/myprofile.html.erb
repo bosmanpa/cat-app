@@ -1,11 +1,12 @@
-<div class='page'>
+ 
+<div class='profile'>
 <h1 style='border:solid; padding:50px;'>My Profile</h1>
-<br><br>
-<div class='form'><h2>My Cats</h2></div>
 <div class="button">
 <%= button_to "Add a New Cat", new_cat_path, method: :get %>
 </div>
-<br>
+<br><br>
+<h2 style="float:left;"><u>My Cats</u></h2>
+<br><br>
 <%# <div class="form"> %>
 <% if @cats.length > 0  %>
 <%@cats.each do |cat|%>
@@ -13,14 +14,13 @@
   <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
     <br><br>
   <% end %></div>
-<div class="form">
 <% else %>
 <p>None</p>
 <% end %>
 
 <br><br>
 
-<h2>My Reservations</h2>
+<h2><u>My Reservations</u></h2>
 <% if @reservations.length > 0 %>
     <% @reservations.each do |reservation| %>
       <%= link_to "#{reservation.date.to_s(:custom_datetime)} #{reservation.cat.name}", reservation %>
@@ -32,7 +32,7 @@
 
 <br><br>
 
-<h2>Reviews of Me</h2>
+<h2><u>Reviews of Me</u></h2>
 <% if @reviews_of_me && !@reviews_of_me.empty? %>
 <%@reviews_of_me.each do |review|%>
      <%= link_to review.reservation.cat.owner.name, review.reservation.cat.owner %>
@@ -44,6 +44,6 @@
 <% end %>
 </div>
 
-<%# </div> %>
+</div>
 
 
