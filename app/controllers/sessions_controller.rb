@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  layout :layout
   before_action :already_signed_in?, only: :new
 
 
@@ -12,6 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to my_profile_path
     else
+        flash[:errors] = ["Invalid username or password"]
         redirect_to login_path
     end
   end

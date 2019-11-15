@@ -35,12 +35,6 @@ class CatsController < ApplicationController
     redirect_to "/cats/?q=#{params[:q]}"
   end
 
-
-  def tagsearch
-    @cats = Cat.select{|c| c.tags.include?(@tag)}
-    render :index
-  end
-
   def show
     @reviews = @cat.reviews
   end
@@ -66,10 +60,6 @@ class CatsController < ApplicationController
 
 
   def destroy
-    # @reservations = @cat.reservations
-    # @reservations.each do |reservation|
-    #   reservation.destroy
-    # end
     @cat.destroy
     redirect_to my_profile_path
   end

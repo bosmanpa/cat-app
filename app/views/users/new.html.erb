@@ -1,8 +1,14 @@
+<% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <div class='error'><%=error%></div>
+        <% end %>
+    <% end %>
 <div class='page'>
-
+<div class='form'>
 <h1>Create An Account</h1>
-<div class="form">
+<br><br>
 <%= render 'form' %>
 <br><br>
-<p>Already have an account? Click <a href='/login'>Sign In</a></p>
+Already have an account? Click <a href='/login'>Sign In</a>
+</div>
 </div>

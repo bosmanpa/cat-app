@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<div class='page'>
 
 <html>
   <head>
@@ -14,12 +13,11 @@
   <body>
     <% if flash[:errors] %>
       <% flash[:errors].each do |error| %>
-        <p><%=error%></p>
+        <div class='error'><%=error%></div>
         <% end %>
     <% end %>
 
     <%= yield %>
-    </div>
     
     </body>
 
