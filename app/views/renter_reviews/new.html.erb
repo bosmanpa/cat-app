@@ -1,8 +1,11 @@
+<div class="form">
 <%= form_with model: @renter_review do |f| %>
     <input type="hidden" name="renter_review[reservation_id]" value=<%=@reservation_id%>>
-    <%= f.label :rating%>
-    <%= f.number_field :rating, min: 1, max: 5%><br>
-    <%= f.label :review %><br>
+    <p><%= f.label :rating%></p>
+    <div style="text-align:center;"><%= f.number_field :rating, min: 1, max: 5%></div><br>
+    <p><%= f.label :review %><br></p>
     <%= f.text_area :review %><br>
-    <%= f.submit %>
+    <br><br>
+    <div style="text-align:center;"><%= f.submit %></div>
 <%end%>
+</div>

@@ -1,7 +1,9 @@
-
+<div class="form">
 <%= form_with model: @reservation do |f| %>
     <input type="hidden" name="cat_id" value=<%=@cat_id%>>
-    <%= f.label :date %>
+    <p><%= f.label :date %></p>
     <%= f.date_field :date %>
+    <br><br>
     <%= f.submit %>
 <% end %>
+</div>
