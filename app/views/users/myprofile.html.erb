@@ -13,6 +13,19 @@
 <div class='cat'>
   <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
     <br><br>
+    <div style="text-align: left; margin-left: 50px;">
+    <h3>Reservations</h3>
+    <h4>
+    <% if cat.reservations.length > 0 %>
+      <% cat.reservations.each do |reservation|%>
+    
+      <%= link_to "#{reservation.date.to_s(:custom_datetime)}", reservation %>
+
+        <% end %></h4></div>
+      <% else %>
+    <p>None</p>
+    <% end %>
+    <br><br>
   <% end %></div>
 <% else %>
 <p>None</p>
