@@ -19,7 +19,6 @@
 <br><br>
  <div class='form'> <%@cats.each do |cat|%>
     <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
-    <br><br>
       <%= button_to "Rent This Cat", new_reservation_path(cat), method: :get %>
     <br><br><br>
   <%end%>

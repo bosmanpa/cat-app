@@ -1,21 +1,22 @@
-
+<div class="form">
 <%= form_with model: @cat do |f| %>
-  <%= f.label :name %>
+  <p><p><%= f.label :name %></p>
   <%= f.text_field :name %><br>
-  <%= f.label :breed%>
+  <p><%= f.label :breed%></p>
   <%= f.text_field :breed %><br>
-  <%= f.label :neighborhood %>
+  <p><%= f.label :neighborhood %></p>
   <%= f.text_field :neighborhood %><br>
-  <%= f.label :price %>
+  <p><%= f.label :price %></p>
   $<%= f.number_field :price%><br>
-  <%= f. label :image %>
+  <p><%= f. label :image %></p>
   <%= f.file_field :image %><br>
-  <%= f.label :tag_ids, "Tags" %><br>
+  <p><%= f.label :tag_ids, "Tags" %></p><br>
   <%= f.collection_check_boxes :tag_ids, @tags, :id, :name%><br>
-  <%= f.label :tags, "Add New Tags"%>
+  <p><%= f.label :tags, "Add New Tags"%></p>
   <%= f.fields_for :tags, @cat.tags.build do |tags_fields| %>
-    <%= tags_fields.text_field :name %>
+    <%= tags_fields.text_field :name %></p>
   <%end%>
   <br>
   <%= f.submit %>
+  </div>
 <%end%>

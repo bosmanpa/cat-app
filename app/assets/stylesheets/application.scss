@@ -17,13 +17,8 @@
 @import 'bootstrap';
 
 body {
-<<<<<<< HEAD
-    background-image: url("https://i.pinimg.com/originals/02/ac/09/02ac09acc6630b0ce79441d7f786b191.jpg");
-    background-color: #242424;
-=======
     background-image: url("https://wallpaperset.com/w/full/a/a/b/180027.jpg");
     background-color: #cccccc;
->>>>>>> 39c1dc4bad6b76868b758ce48c5b9a567961ec50
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -82,18 +77,19 @@ button {
     text-align: left;
 }
 
-<<<<<<< HEAD
 #catpicname{
     display:inline-block;
     margin-right:10px;
 } 
 #catinfo {
     display:inline-block;
-    width: 400px;
     text-align: left;
-    padding: 5px;
-<<<<<<< HEAD
-=======
+    }
+
+div.log {
+text-align: center;
+}
+
 div.page {
     margin-right: 500px;
     margin-left: 500px;
@@ -101,11 +97,4 @@ div.page {
     background-color:rgba(255,99,71,0.5);
 
 
->>>>>>> 39c1dc4bad6b76868b758ce48c5b9a567961ec50
-=======
-}
-
-div.log {
-text-align: center
->>>>>>> pat
 }
