@@ -1,24 +1,26 @@
-<h1>All Cats:</h1>
-<div class='button'>
-<%=button_to "Back To All Cats", cats_path, method: :get%>
-</div>
+<div class='page'>
+  <h1>All Cats:</h1>
+  <div class='button'>
+    <%=button_to "Back To All Cats", cats_path, method: :get%>
+  </div>
 
-<div class='form'>
-<%=form_with url: '/cats/search' do |f|%>
-  <p><%=f.label :q, "Search Cats"%></p>
-  <%=f.text_field :q%>
-  <%=f.submit "Search"%>
-<%end%>
-</div>
+  <div class='form'>
+    <%=form_with url: '/cats/search' do |f|%>
+      <p><%=f.label :q, "Search Cats"%></p>
+      <%=f.text_field :q%>
+      <%=f.submit "Search"%>
+    <%end%>
+  </div>
 
-<%if @cats.empty? %>
-<br><br>
-  No Results Found For "<%= params[:q] %>"
-  <br><br>
-<% else %>
-<br><br>
- <div class='form'> <%@cats.each do |cat|%>
-    <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
+  <%if @cats.empty? %>
     <br><br>
-  <%end%>
-<% end  %>
+    No Results Found For "<%= params[:q] %>"
+    <br><br>
+  <% else %>
+    <br><br>
+    <div class='form'> <%@cats.each do |cat|%>
+      <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
+      <br><br>
+    <%end%>
+  <% end  %>
+</div>

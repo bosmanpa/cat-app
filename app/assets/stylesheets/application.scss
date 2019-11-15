@@ -17,25 +17,30 @@
 @import 'bootstrap';
 
 body {
-    background-image: url("https://i.pinimg.com/originals/02/ac/09/02ac09acc6630b0ce79441d7f786b191.jpg");
+    background-image: url("https://wallpaperset.com/w/full/a/a/b/180027.jpg");
     background-color: #cccccc;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
    }
 
 h1 {
     text-align: center;
-    color: red;
+    color: rgb(255, 255, 255);
   }
   
 h2{
     text-align: center;
-    color: green;
+    color: rgb(255, 255, 255);
 }
 
 h3{
     text-align: center;
-    color: blue;
+    color: rgb(255, 255, 255);
+}
+
+a{
+    color: rgb(255, 255, 255);
 }
 
 p{
@@ -69,4 +74,13 @@ button {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+}
+
+div.page {
+    margin-right: 500px;
+    margin-left: 500px;
+    padding-bottom: 600px;
+    background-color:rgba(255,99,71,0.5);
+
+
 }
