@@ -1,4 +1,7 @@
-<h1><%=@cat.name%></h1>
+<div class='button'>
 <%=button_to "back to all", cats_path, method: 'get'%>
+</div>
+<br>
+<div class="form">
 <%= render partial: "layouts/cat_display", locals: {cat: @cat} %>
-
+</div>

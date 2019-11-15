@@ -1,32 +1,35 @@
-
-<% if cat.image.attached?%>
-  <%= image_tag cat.image, height: '150', width: '150' %>
-<% else %>
-  <%=  image_tag "default.jpg", height: '150', width: '150'%>
-<% end %>
-<h2><%=link_to cat.name, cat%></h2>
-<h3 style="margin: 0; display: inline;">Owner:</h3>
-<p style="margin: 0; display: inline;" align="right"><%=link_to cat.owner.name, cat.owner%></p>
-<br>
-<h3 style="margin: 0; display: inline;">Rating:</h3>
-<% if cat.overall_rating > 0 %>
-  <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i))%>
-  <%="#{cat.overall_rating} / 5"%></p>
-<% else %>
-  None
-<% end %>
-<br>
-<h3 style="margin: 0; display: inline;">Neighborhood:</h3>
-<p style="margin: 0; display: inline;" align="right"><%=cat.neighborhood%></p>
-<br>
-<h3 style="margin: 0; display: inline;">Price:</h3>
-<p style="margin: 0; display: inline;" align="right">$<%=cat.price%></p>
-<p>Tags: 
-<%if cat.tags.length > 0%>
-  <%cat.tags.uniq.each do |tag|%>
-    #<%=link_to tag.name, "/cats/?q=#{tag.name}"%> 
-  <%end%>
-<%else%>
-  None
-<%end%></p>
-<%= button_to "Rent This Cat", new_reservation_path(cat), method: :get %>
+    <div id='catpicname'>
+    <% if cat.image.attached?%>
+      <%= image_tag cat.image, height: '150', width: '150' %>
+    <% else %>
+      <%=  image_tag "default.jpg", height: '150', width: '150'%>
+    <% end %>
+    <h2><%=link_to cat.name, cat%></h2>
+    </div>
+  <!--link_to owner-->
+    <div id='catinfo'>
+    <h3 style="margin: 0; display: inline;">Owner:</h3>
+    <p style="margin: 0; display: inline;" align="right"><%=cat.owner.name%></p>
+    <br>
+    <h3 style="margin: 0; display: inline;">Rating:</h3>
+    <% if cat.overall_rating > 0 %>
+      <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i))%>
+      <%="#{cat.overall_rating} / 5"%></p>
+    <% else %>
+      None
+    <% end %>
+    <br>
+    <h3 style="margin: 0; display: inline;">Neighborhood:</h3>
+    <p style="margin: 0; display: inline;" align="right"><%=cat.neighborhood%></p>
+    <br>
+    <h3 style="margin: 0; display: inline;">Price:</h3>
+    <p style="margin: 0; display: inline;" align="right">$<%=cat.price%></p>
+    <p>Tags: 
+    <%if cat.tags.length > 0%>
+      <%cat.tags.uniq.each do |tag|%>
+        #<%=link_to tag.name, "/cats/?q=#{tag.name}"%> 
+      <%end%>
+    <%else%>
+      None
+    <%end%></p>
+    </div>
