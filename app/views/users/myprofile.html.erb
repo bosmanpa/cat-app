@@ -5,42 +5,9 @@
 
 <% if @cats.length > 0  %>
 <%@cats.each do |cat|%>
-  <h2><%=link_to cat.name, cat%></h2>
-  <%= button_to 'Edit ' + cat.name, edit_cat_path(cat), method: :get%>
-  <%= button_to 'Retire ' + cat.name, cat_path(cat), method: 'delete'%></div>
-  <h3 style="margin: 0; display: inline;">Owner:</h3>
-  <p style="margin: 0; display: inline;" align="right"><%=cat.owner.name%></p>
-  <br>
-  <h3 style="margin: 0; display: inline;">Rating:</h3>
-  <% if cat.overall_rating > 0 %>
-    <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i))%>
-    <%="#{cat.overall_rating} / 5"%></p>
-  <% else %>
-    None
+  <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
+    <br><br>
   <% end %>
-  <br>
-  <h3 style="margin: 0; display: inline;">Neighborhood:</h3>
-  <p style="margin: 0; display: inline;" align="right"><%=cat.neighborhood%></p>
-  <br>
-  <h3 style="margin: 0; display: inline;">Price:</h3>
-  <p style="margin: 0; display: inline;" align="right">$<%=cat.price%></p>
-  <p>Tags: 
-  <%if cat.tags.length > 0%>
-    <%cat.tags[0..2].each do |tag|%>
-      #<%=link_to tag.name, "/cats/?q=#{tag.name}"%> 
-    <%end%>
-  <%else%>
-    None
-  <%end%></p>
-<h3> <%= cat.name %>'s Reservations:</h3>
-<% if cat.reservations.length > 0%>
-<ul><% cat.reservations.each do |reservation| %>
-    <li><%= link_to "#{reservation.date.to_s(:custom_datetime)}", reservation %></li>
-<% end  %></ul>
-<% else %>
-<p>None</p>
-<% end %>
-<% end %>
 <% else %>
 <p>None</p>
 <% end %>
